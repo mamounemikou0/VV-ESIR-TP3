@@ -40,50 +40,50 @@ Use the following steps to design the test suite:
 Use the project in [tp3-heap](../code/tp3-heap) to complete this exercise.
 
 # Answer
-## 1.
-**public T pop() { ... }**
+## 1. [BinaryHeap](../code/tp3-heap/src/main/java/fr/istic/vv/BinaryHeap.java) and [BinaryHeapTest](../code/tp3-heap/src/test/java/fr/istic/vv/BinaryHeapTest.java)
+#### public T pop() { ... }
   
-Characteristics:   
+**Characteristics:**   
 
 	The state of the heap   
  
-Blocks:   
+**Blocks:** 
 
     - Heap is empty
     - Heap contains one element
     - Heap contains multiple elements
 
-**public T peek() { ... }**   
+#### public T peek() { ... }
 
-Characteristics:   
+**Characteristics:**   
 
 	The state of the heap   
  
-Blocks:   
+**Blocks:**   
 
     - Heap is empty
     - Heap contains one element
     - Heap contains multiple elements
 
-**public void push(T element) { ... }**   
+#### public void push(T element) { ... } 
 
-Characteristics:   
+**Characteristics:**   
 
 	The element being added   
  
-Blocks:   
+**Blocks:**
 
     - Valid element
     - Null element
     - Duplicate elements
 
-**public int count() { ... }**   
+#### public int count() { ... }
 
-Characteristics:   
+**Characteristics:**
 
 	The state of the heap   
  
-Blocks:   
+**Blocks:**
 
     - Heap is empty
     - Heap contains one element
@@ -94,7 +94,6 @@ The characteristic state of the heap is used in the methods pop(), peek(), and c
 ## 2.Evaluate the statement coverage using the plugin eclmma in eclipse   
 <img width="565" alt="Capture d’écran 2024-10-09 154043" src="https://github.com/user-attachments/assets/a03f9b76-f3fe-45a0-953c-c467d91be493">
 
-
 for the binaryheap the lines in red means that they wasn’t tested ,so we will add more test to improve the coverage.
 After adding 2 tests, we had this result:
 
@@ -103,7 +102,7 @@ After adding 2 tests, we had this result:
 The addition of the 2 tests allowed us to increase the coverage from 92.4% to 93.3% which does not show a big difference because we already had 14 first tests with a coverage of 92.4%.
 
 ## 3. Base Choice Coverage :
-These are the cases in the method heapifyDown(int index)
+Those are the cases in the method heapifyDown(int index)
 ### predicat 1:
 
     if (leftChildIndex < heap.size() && comparator.compare(heap.get(leftChildIndex), heap.get(smallestChildIndex)) < 0)  
