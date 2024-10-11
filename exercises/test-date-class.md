@@ -51,5 +51,82 @@ Use the following steps to design the test suite:
 
 Use the project in [tp3-date](../code/tp3-date) to complete this exercise.
 
-## Answer
+# Answer
+Identify Characteristics and Blocks
+## 1. 
+### Constructor & isValidDate (int day, int month, int year)
+
+#### Characteristics: 
+
+    day: Day of the month (1–31 depending on the month and leap year)
+    month: Month of the year (1–12)
+    year: Year (positive integers, checking for leap years)
+
+#### Blocks:
+**Valid blocks:**   
+
+    Valid day for each month and leap year (e.g., Feb 29 only valid in leap years).
+    Valid month (1–12).
+    Positive integer year.   
+    
+**Invalid blocks:**
+
+    Invalid day for the month (e.g., day > 28 for February in a non-leap year).
+    Invalid month (outside 1–12).
+    Negative or zero year.
+    
+### isLeapYear (int year)
+#### Characteristics:   
+    
+    year: Year to check for leap year status.
+
+#### Blocks:
+    
+**Valid blocks:**
+    Divisible by 4 but not by 100 (leap year).
+    Divisible by 400 (leap year).
+    Not divisible by 4 (non-leap year).
+    Divisible by 100 but not by 400 (non-leap year).
+
+### nextDate and previousDate
+
+##### Characteristics:
+
+**Transitions between:**
+
+    End of month to next month.
+    End of year to next year.
+    Leap year February to March.
+    December 31 to January 1 (next year).
+    Beginning of month to previous month.
+    Beginning of year to previous year.
+    Leap year March 1 to February 29.   
+    
+#### Blocks:
+
+    Regular day transitions within the month.
+    Month-to-month transitions.
+    Year transitions.
+    Leap year transitions.
+    
+
+### compareTo (Date other)
+
+#### Characteristics: 
+
+    other: Date object to compare.   
+    
+#### Blocks:   
+
+**Valid blocks:**
+
+    Dates with the same year, month, day (should return 0).
+    Dates where the current object is earlier (should return negative).
+    Dates where the current object is later (should return positive).
+    
+**Invalid blocks:**
+
+    null as other (should throw NullPointerException).
+
+## 2. Evaluate the statement coverage.
 
