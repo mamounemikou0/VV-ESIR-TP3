@@ -11,3 +11,6 @@ Answer the following questions:
 4. In JUnit 4, an exception was expected using the `@Test` annotation, while in JUnit 5 there is a special assertion method `assertThrows`. In your opinion, what are the advantages of this new way of checking expected exceptions?
 
 ## Answer
+1.The assertion fails due to floating-point imprecision. Computers represent floating-point numbers in binary, which cannot always exactly represent decimal values. For example, the result of 3 * 0.4 is not exactly 1.2, but rather something like 1.2000000000000002 due to the way floating-point arithmetic works. When you compare 3 * 0.4 == 1.2, the equality check fails because these two numbers are not precisely the same in memory.
+
+To handle this issue, it is recommended to use a tolerance value (epsilon) when comparing floating-point numbers. Instead of checking for exact equality, you can check if the absolute difference between the two numbers is smaller than a small threshold (epsilon).
