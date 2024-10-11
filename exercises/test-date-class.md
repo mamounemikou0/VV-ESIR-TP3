@@ -129,4 +129,60 @@ Identify Characteristics and Blocks
     null as other (should throw NullPointerException).
 
 ## 2. Evaluate the statement coverage.
+ I evaluated the statement coverage of the existing test cases designed for the `Date` class. The goal was to ensure that all possible execution paths and logical branches within the methods are adequately tested. Below are the specifics regarding the coverage and any new test cases that were added to enhance it:  
+ 
+![image](https://github.com/user-attachments/assets/5aa07640-0b09-4378-a3da-5a849f6c175e)   
 
+![image](https://github.com/user-attachments/assets/5c006e10-3597-4670-93be-abebac745132)
+
+#### Additional Test Cases Added:
+
+##### For `compareTo`:
+- **Identical Dates**: This test checks whether comparing two identical dates returns 0. This is crucial to verify that the method correctly identifies equal dates.
+
+##### For `equals`:
+- **Same Object**: This test checks that an instance of `Date` correctly compares to itself, returning true.
+- **Different Objects with Same Date**: This test checks that two distinct `Date` objects, which have the same day, month, and year, are considered equal.
+- **Different Dates**: This test ensures that two different dates do not evaluate as equal, confirming the correct functioning of the equality logic.
+- **Non-Date Object**: This test verifies that when comparing a `Date` object with an object of a different type, the result is false.
+
+##### For `hashCode`:
+- **Equivalent Dates**: This test ensures that two identical dates produce the same hash code, which is essential for the correct functioning of hash-based collections.
+- **Different Dates**: This test confirms that two different dates produce different hash codes, maintaining the integrity of hash code contracts.
+  
+  By adding these test cases, the coverage increased
+![image](https://github.com/user-attachments/assets/f9bb878a-27a9-4970-b8e6-a90a1716c6fc)
+
+## 3. Evaluate the statement coverage.   
+
+# Evaluation of Statement Coverage for the `Date` Class
+
+In my evaluation of statement coverage for the `Date` class, I identified several predicates with multiple boolean operators:
+
+##### Predicate in `isLeapYear`:
+The predicate involves the logical conditions for determining if a year is a leap year. It uses both `&&` and `||`, requiring a comprehensive set of test cases to cover the following outcomes:
+- A year that is a leap year (divisible by 4 but not 100, or divisible by 400).
+- A year that is not a leap year (divisible by 100 but not 400, or not divisible by 4).
+
+##### Predicate in `compareTo`:
+This method checks the year, month, and day for comparison, requiring specific combinations of conditions to be evaluated:
+- The case where both dates are equal.
+- The case where one date is earlier than the other, and vice versa.
+
+After reviewing the current test cases, I found that all necessary combinations for `isLeapYear` were covered, as the test cases accounted for years that were both leap years and non-leap years.
+
+For `compareTo`, I also confirmed that the cases where dates are the same, or one is earlier or later than the other, are well represented.
+
+##### Base Choice Coverage:
+Upon analysis, I believe that the current test cases meet Base Choice Coverage criteria. Each condition was tested in a variety of ways, ensuring logical paths were fully covered.   
+
+
+## 4.    
+The additional test cases added for the compareTo method significantly enhance the logic coverage of the Date class, addressing various scenarios that ensure robust testing for comparisons of dates.  
+
+![image](https://github.com/user-attachments/assets/b397d54e-dd9b-445c-8960-9d630b08947a)
+After implementing these new tests and refactoring existing ones, we ran PITest again and observed:
+
+Updated Mutation Score: 95%  
+
+Live Mutants: Reduced to a minimal number, indicating our tests now cover most logical conditions effectively
